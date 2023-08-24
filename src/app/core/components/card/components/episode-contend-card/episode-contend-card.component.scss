@@ -1,0 +1,37 @@
+footer.footer-article {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+
+  h6 {
+    color: chocolate;
+  }
+}
+
+.container-articles {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+
+  h2 {
+    text-align: center;
+  }
+
+  article {
+    p {
+      font-weight: 600;
+      color: #4070a4;
+    }
+
+
+    .maxW{
+      width: 200px;
+      margin: auto;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+  }
+}

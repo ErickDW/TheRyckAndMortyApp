@@ -1,0 +1,22 @@
+@use '@angular/material' as mat;
+
+@import './themes.scss';
+
+@include mat.core();
+
+//variable exchange for local handling
+$colors-dark: mat.get-color-config($TheRyckAndMortyApp-dark-primary);
+$color-primary-dark: map-get($map: $colors-dark, $key: 500);
+
+$colors-light: mat.get-color-config($TheRyckAndMortyApp-light-primary);
+$color-primary-light: map-get($map: $colors-light, $key: 500);
+
+
+// layout vars
+$max-width: 1440px;
+
+// theme light vars
+$bg-light: white;
+
+// theme dark vars
+$bg-dark: $color-primary-dark;

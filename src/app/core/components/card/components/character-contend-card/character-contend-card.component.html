@@ -1,0 +1,25 @@
+<article class="container-articles">
+  <div class="title">
+    <h2>{{ data.name }}</h2>
+    <span
+      class="circle dead"
+      [ngClass]="{
+        alive: data.status === 'Alive',
+        dead: data.status === 'Dead',
+        unknown: data.status === 'unknown'
+      }"
+      [matTooltip]="statusToolTip()"
+      matTooltipPosition="above"
+    ></span>
+  </div>
+  <div class="container-articles">
+    <article>
+      <h4>Last known location:</h4>
+      <p>Earth (Replacement Dimension)</p>
+    </article>
+    <article>
+      <h4>First seen in::</h4>
+      <p>Raising Gazorpazorp</p>
+    </article>
+  </div>
+</article>

@@ -1,0 +1,42 @@
+
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$palette-dark:(
+  50:  #f6f6f6,
+  100: #d3d3d3,
+  200: #a6a6a6,
+  300: #7a7a7a,
+  400: #4d4d4d,
+  500: #212121,
+  600: #1a1a1a,
+  700: #141414,
+  800: #0d0d0d,
+  900: #070707,
+  contrast:(
+    50: #f8f1f0,
+    100: #d9d9d9,
+    200: #bfbfbf,
+    300: #a6a6a6,
+    400: #8c8c8c,
+    500: #737373,
+    600: #595959,
+    700: #404040,
+    800: #262626,
+    900: #120b0c,
+  ),
+);
+
+$TheRyckAndMortyApp-dark-primary: mat.define-palette($palette-dark, 500);
+$TheRyckAndMortyApp-dark-accent: mat.define-palette(mat.$deep-purple-palette, A200, A100, A400);
+$TheRyckAndMortyApp-dark-warn: mat.define-palette(mat.$red-palette);
+
+$TheRyckAndMortyApp-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $TheRyckAndMortyApp-dark-primary,
+    accent: $TheRyckAndMortyApp-dark-accent,
+    warn: $TheRyckAndMortyApp-dark-warn,
+  )
+));
+
