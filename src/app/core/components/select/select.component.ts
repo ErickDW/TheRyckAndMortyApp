@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SearchService } from 'src/app/services/rxjs/search/search.service';
 
 @Component({
   selector: 'app-select',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./select.component.scss']
 })
 export class SelectComponent {
-  selected = 'option2';
+  name = '';
+
+  constructor(private search: SearchService){
+    this.search.search$.subscribe((state) => {
+      this.name = state.name;
+    });
+
+  }
+
+  select(value: string = 'All'){
+    this.search.searchSet({ name: this.name, status: value });
+  }
 }

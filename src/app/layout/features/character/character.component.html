@@ -2,13 +2,10 @@
   <app-button-back></app-button-back>
   <div class="container-character-info">
     <div class="container-img">
-      <img
-        src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
-        alt="morty"
-      />
+      <img [src]="character.image" [alt]="character.name" />
     </div>
     <article class="container-articles">
-      <h1>Morty Smith</h1>
+      <h1>{{ character.name }}</h1>
       <article class="container-info">
         <article>
           <h3>Status</h3>
@@ -17,24 +14,26 @@
             <span
               class="circle"
               [ngClass]="{
-                alive: status === 'Alive',
-                dead: status === 'Dead',
-                unknown: status === 'unknown'
+                'alive': character.status === 'Alive',
+                'dead': character.status === 'Dead',
+                'unknown': character.status === 'unknown'
               }"
+              [matTooltip]="statusToolTip()"
+              matTooltipPosition="above"
             ></span>
           </article>
         </article>
         <article>
           <h3>Species</h3>
-          <p>Human</p>
+          <p>{{ character.species }}</p>
         </article>
         <article>
           <h3>Gender</h3>
-          <p>Male</p>
+          <p>{{ character.gender }}</p>
         </article>
         <article>
           <h3>Origin</h3>
-          <p>Unknown</p>
+          <p>{{ character.origin.name }}</p>
         </article>
         <article>
           <h3>First seen in:</h3>
@@ -42,18 +41,13 @@
         </article>
         <article>
           <h3>Last known location:</h3>
-          <p>Earth (Replacement Dimension)</p>
+          <p>{{ character.location.name }}</p>
         </article>
       </article>
     </article>
   </div>
   <div class="container-others">
-    <h1>Others Morty</h1>
-    <div class="container-cards">
-      <app-card></app-card>
-      <app-card></app-card>
-      <app-card></app-card>
-      <app-card></app-card>
-    </div>
+    <h1>Others {{ firstName }}</h1>
+    <app-characters-rm [notPreLoadData]="true"></app-characters-rm>
   </div>
 </div>

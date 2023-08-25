@@ -7,6 +7,8 @@ import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DarkModeService } from './services/rxjs/dark-mode/dark-mode.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchService } from './services/rxjs/search/search.service';
+import { CharactersService } from './services/api/characters/characters.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,9 +17,15 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [CoreModule, AppRoutingModule, DarkModeService],
+  providers: [
+    CoreModule,
+    AppRoutingModule,
+    DarkModeService,
+    SearchService,
+    CharactersService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

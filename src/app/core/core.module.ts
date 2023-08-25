@@ -17,6 +17,7 @@ import { StatusCircleComponent } from './components/status-circle/status-circle.
 import { CharactersRmComponent } from './components/rm/characters-rm/characters-rm.component';
 import { EpisodesRmComponent } from './components/rm/episodes-rm/episodes-rm.component';
 import { LocationsRmComponent } from './components/rm/locations-rm/locations-rm.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { LocationsRmComponent } from './components/rm/locations-rm/locations-rm.
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    InfiniteScrollModule
   ],
   exports: [
     MaterialModule,

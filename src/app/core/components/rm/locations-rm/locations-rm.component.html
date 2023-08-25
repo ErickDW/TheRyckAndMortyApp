@@ -1,6 +1,9 @@
-<div class="container-cards">
-  <app-card [data]="locationRM"></app-card>
-  <app-card [data]="locationRM"></app-card>
-  <app-card [data]="locationRM"></app-card>
-  <app-card [data]="locationRM"></app-card>
+<div class="container-cards" infinite-scroll (scrolled)="onScrollDown()">
+  <app-card
+    *ngFor="let locationRM of locationsRM"
+    [data]="locationRM"
+    rout="/location"
+  ></app-card>
 </div>
+<h2 *ngIf="locationsRM.length <= 0">Not results...</h2>
+<app-button-up></app-button-up>

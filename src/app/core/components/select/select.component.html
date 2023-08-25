@@ -1,6 +1,6 @@
 <mat-form-field>
   <mat-label>Select filter</mat-label>
-  <mat-select [(value)]="selected">
+  <mat-select (valueChange)="select($event)">
     <mat-option>All</mat-option>
     <mat-option value="dead">Dead</mat-option>
     <mat-option value="alive">Alive</mat-option>

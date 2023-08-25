@@ -1,6 +1,9 @@
-<div class="container-cards">
-  <app-card [data]="episode"></app-card>
-  <app-card [data]="episode"></app-card>
-  <app-card [data]="episode"></app-card>
-  <app-card [data]="episode"></app-card>
+<div class="container-cards" infinite-scroll (scrolled)="onScrollDown()">
+  <app-card
+    *ngFor="let episode of episodes"
+    [data]="episode"
+    rout="/episode"
+  ></app-card>
 </div>
+<h2 *ngIf="episodes.length <= 0">Not results...</h2>
+<app-button-up></app-button-up>

@@ -3,14 +3,12 @@
     <h2>{{ data.name }}</h2>
     <article>
       <p>Number of characters seen in this episode:</p>
-      <span>{{numbersCharacters}}</span>
+      <span>{{ data.characters.length }}</span>
     </article>
     <article>
       <p>some characters in this episode are:</p>
       <div class="maxW">
-        <span
-          >Rick, Morty, jess, laura, sdf, asdf , asdf , sadf ,asdf fasd</span
-        >
+        <span>{{ commaSeparatedString }}</span>
       </div>
     </article>
   </div>

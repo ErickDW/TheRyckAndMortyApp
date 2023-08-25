@@ -13,22 +13,24 @@ export interface User {
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
-
 export class SearchComponent {
-
-
+  status: string = '';
   myControl = new FormControl<string | User>('');
   options: User[] = [{ name: 'Morty' }, { name: 'Rick' }, { name: 'Summer' }];
   filteredOptions?: Observable<User[]>;
 
-  constructor(private search: SearchService){}
+  constructor(private search: SearchService) {
+    this.search.search$.subscribe((state) => {
+      this.status = state.status as string;
+    });
+  }
 
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map((value) => {
         const name = typeof value === 'string' ? value : value?.name;
-        this.search.searchSet(name as string);
+        this.search.searchSet({ name: name as string, status: this.status});
         return name ? this._filter(name as string) : this.options.slice();
       })
     );
@@ -45,5 +47,4 @@ export class SearchComponent {
       option.name.toLowerCase().includes(filterValue)
     );
   }
-
 }

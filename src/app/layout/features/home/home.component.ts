@@ -11,6 +11,10 @@ export class HomeComponent {
     name: '',
   };
 
+
+  ngOnInit(): void {
+    scrollTo(0,0)
+  }
   searchQuery(value: string) {
     if(value){
       this.query.name = value;

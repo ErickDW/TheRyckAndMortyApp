@@ -19,4 +19,9 @@ export class ButtonUpComponent {
 
     this.showButton = (scrollY || scrollTop) > this.scrollHeight;
   }
+
+
+  onScrollTop(){
+    scroll(0,0)
+  }
 }

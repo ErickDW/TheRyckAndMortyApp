@@ -10,6 +10,7 @@ import { CHARACTER, EPISODE, LOCATIONRM } from 'src/app/utils/mocks';
 })
 export class CardComponent {
   @Input() data: Character | Episode | LocationRM = CHARACTER;
+  @Input() rout: string = '';
 
   imageSrc : string = CHARACTER.image;
   dark: boolean = false;
@@ -17,7 +18,6 @@ export class CardComponent {
   constructor(private darkModeTheme: DarkModeService){
     this.darkModeTheme.darkMode$.subscribe(state => {
       this.dark = state;
-      console.log('card: ', this.dark );
     });
   }
 

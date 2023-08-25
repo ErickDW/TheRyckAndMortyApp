@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { take } from 'rxjs/operators';
 
 import { CharactersService } from 'src/app/services/api/characters/characters.service';
@@ -12,10 +12,15 @@ import { SearchService } from 'src/app/services/rxjs/search/search.service';
   styleUrls: ['./characters-rm.component.scss'],
 })
 export class CharactersRmComponent {
+  @Input() preLoadData: Character[] = [];
+  @Input() notPreLoadData: boolean = true;
+
+  notPreloadData: boolean = true;
+
   query: FilterCharacter = {
     name: '',
   };
-  pageNum?: number;
+  pageNum: number = 1;
 
   characters: Character[] = [];
   info: Info = {
@@ -27,9 +32,22 @@ export class CharactersRmComponent {
     private search: SearchService
   ) {
     this.search.search$.subscribe((state) => {
-      this.query.name = state;
+      this.query.name = state.name;
+      this.query.status = state.status;
+      this.pageNum = 1;
       this.getDataFromService();
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['preLoadData']) {
+      this.characters = changes['preLoadData'].currentValue;
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.preLoadData = [];
+    this.notPreLoadData = true;
   }
 
   private getDataFromService() {
@@ -40,12 +58,23 @@ export class CharactersRmComponent {
         next: (res: ResponseRM) => {
           const { info, results } = res as ResponseRM;
           const char: Character[] = results as Character[];
-          this.characters = [...char];
+          if (this.pageNum > 1) {
+            this.characters = [...this.characters, ...char];
+          } else {
+            this.characters = [...char];
+          }
           this.info = info;
         },
         error: () => {
           this.characters = [];
         },
       });
+  }
+
+  onScrollDown() {
+    if (this.info.next && this.notPreLoadData) {
+      this.pageNum++;
+      this.getDataFromService();
+    }
   }
 }

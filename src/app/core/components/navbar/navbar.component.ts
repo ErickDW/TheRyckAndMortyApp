@@ -13,7 +13,6 @@ export class NavbarComponent {
   constructor(private darkModeTheme: DarkModeService){
     this.darkModeTheme.darkMode$.subscribe(state => {
       this.dark = state;
-      console.log('nav: ', this.dark );
     });
   }
 

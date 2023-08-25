@@ -1,1 +1,28 @@
-<p>locations-rm works!</p>
+<div class="container-principal">
+  <app-button-back></app-button-back>
+  <article class="container-articles">
+    <h1>{{ locationRM.name }}</h1>
+    <article class="container-sub-articles">
+      <article>
+        <h2>Number of residents:</h2>
+        <p>{{ locationRM.residents.length }}</p>
+      </article>
+      <article>
+        <h2>Type:</h2>
+        <p>{{ locationRM.type }}</p>
+      </article>
+      <article>
+        <h2>Dimension:</h2>
+        <p>{{ locationRM.dimension }}</p>
+      </article>
+    </article>
+  </article>
+  <div class="container-residents">
+    <h1 *ngIf="data.length > 0">Residents:</h1>
+    <h1 *ngIf="data.length <= 0">Not residents</h1>
+    <app-characters-rm
+      [notPreLoadData]="false"
+      [preLoadData]="data"
+    ></app-characters-rm>
+  </div>
+</div>
