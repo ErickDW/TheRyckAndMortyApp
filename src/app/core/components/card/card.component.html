@@ -1,6 +1,6 @@
-<mat-card [ngClass]="{ 'darkTheme-bg': dark }" class="card" matRipple>
+<mat-card [ngClass]="{ 'darkTheme-bg': dark }" class="card" matRipple [routerLink]="['/character', data.id]">
   <mat-card-header *ngIf="isCharacter()" class="pdg-0">
-    <img mat-card-image [src]="img()" alt="Photo of a Shiba Inu" width="100%" />
+    <img mat-card-image [src]="img()" [alt]="data.name" width="100%" />
   </mat-card-header>
 
   <mat-card-content class="content-card-data">

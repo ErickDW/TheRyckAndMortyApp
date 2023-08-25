@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { CharactersComponent } from './characters/characters.component';
-import { EpisodesComponent } from './episodes/episodes.component';
-import { LocationsRMComponent } from './locations-rm/locations-rm.component';
+import { CharacterComponent } from './character/character.component';
+import { EpisodeComponent } from './episode/episode.component';
+import { LocationRMComponent } from './location-rm/location-rm.component';
 
 const routes: Routes = [
   {
@@ -11,16 +11,16 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'characters',
-    component: CharactersComponent,
+    path: 'character/:id',
+    component: CharacterComponent,
   },
   {
-    path: 'episodes',
-    component: EpisodesComponent,
+    path: 'episode/:id',
+    component: EpisodeComponent,
   },
   {
-    path: 'locations',
-    component: LocationsRMComponent,
+    path: 'location/:id',
+    component: LocationRMComponent,
   },
   {
     path: '**',

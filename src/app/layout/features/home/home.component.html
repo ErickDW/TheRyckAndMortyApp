@@ -1,26 +1,13 @@
+
+<app-filters></app-filters>
 <mat-tab-group>
   <mat-tab label="Characters">
-    <div class=" container-cards">
-      <app-card></app-card>
-      <app-card></app-card>
-      <app-card></app-card>
-      <app-card></app-card>
-    </div>
+    <app-characters-rm></app-characters-rm>
   </mat-tab>
   <mat-tab label="Episodes">
-    <div class="container-cards">
-      <app-card [data]="episode"></app-card>
-      <app-card [data]="episode"></app-card>
-      <app-card [data]="episode"></app-card>
-      <app-card [data]="episode"></app-card>
-    </div>
+    <app-episodes-rm></app-episodes-rm>
   </mat-tab>
   <mat-tab label="Locations">
-    <div class="container-cards">
-      <app-card [data]="locationRM"></app-card>
-      <app-card [data]="locationRM"></app-card>
-      <app-card [data]="locationRM"></app-card>
-      <app-card [data]="locationRM"></app-card>
-    </div>
+    <app-locations-rm></app-locations-rm>
   </mat-tab>
 </mat-tab-group>

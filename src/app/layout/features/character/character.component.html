@@ -1,0 +1,59 @@
+<div class="container-principal">
+  <app-button-back></app-button-back>
+  <div class="container-character-info">
+    <div class="container-img">
+      <img
+        src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
+        alt="morty"
+      />
+    </div>
+    <article class="container-articles">
+      <h1>Morty Smith</h1>
+      <article class="container-info">
+        <article>
+          <h3>Status</h3>
+          <article>
+            <p>Alive -</p>
+            <span
+              class="circle"
+              [ngClass]="{
+                alive: status === 'Alive',
+                dead: status === 'Dead',
+                unknown: status === 'unknown'
+              }"
+            ></span>
+          </article>
+        </article>
+        <article>
+          <h3>Species</h3>
+          <p>Human</p>
+        </article>
+        <article>
+          <h3>Gender</h3>
+          <p>Male</p>
+        </article>
+        <article>
+          <h3>Origin</h3>
+          <p>Unknown</p>
+        </article>
+        <article>
+          <h3>First seen in:</h3>
+          <p>Raising Gazorpazorp</p>
+        </article>
+        <article>
+          <h3>Last known location:</h3>
+          <p>Earth (Replacement Dimension)</p>
+        </article>
+      </article>
+    </article>
+  </div>
+  <div class="container-others">
+    <h1>Others Morty</h1>
+    <div class="container-cards">
+      <app-card></app-card>
+      <app-card></app-card>
+      <app-card></app-card>
+      <app-card></app-card>
+    </div>
+  </div>
+</div>

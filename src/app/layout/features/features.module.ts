@@ -4,23 +4,21 @@ import { CommonModule } from '@angular/common';
 import { FeaturesRoutingModule } from './features-routing.module';
 import { CoreModule } from 'src/app/core/core.module';
 import { HomeComponent } from './home/home.component';
-import { CharactersComponent } from './characters/characters.component';
-import { EpisodesComponent } from './episodes/episodes.component';
-import { LocationsRMComponent } from './locations-rm/locations-rm.component';
-
+import { CharacterComponent } from './character/character.component';
+import { EpisodeComponent } from './episode/episode.component';
+import { LocationRMComponent } from './location-rm/location-rm.component';
+import { FiltersComponent } from './home/components/filters/filters.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    CharactersComponent,
-    EpisodesComponent,
-    LocationsRMComponent
+    CharacterComponent,
+    EpisodeComponent,
+    LocationRMComponent,
+    FiltersComponent,
   ],
-  imports: [
-    CommonModule,
-    FeaturesRoutingModule,
-    CoreModule
-  ],
-  providers:[CoreModule]
+  imports: [CommonModule, FeaturesRoutingModule, CoreModule, FormsModule],
+  providers: [CoreModule],
 })
-export class FeaturesModule { }
+export class FeaturesModule {}

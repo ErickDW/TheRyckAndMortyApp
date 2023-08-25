@@ -1,0 +1,21 @@
+span.circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dead{
+  background-color: red;
+  box-shadow: 0px 0px 5px 5px rgba(255, 0, 0, 0.3);
+}
+
+.alive{
+  background-color: rgb(0, 255, 13);
+  box-shadow: 0px 0px 5px 5px rgba(0, 255, 13, 0.3);
+}
+
+.unknown{
+  background-color: #303030;
+  box-shadow: 0px 0px 5px 5px #ffffff50;
+}

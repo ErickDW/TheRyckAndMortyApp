@@ -1,0 +1,10 @@
+<span
+  class="circle dead"
+  [ngClass]="{
+    'alive': status === 'Alive',
+    'dead': status === 'Dead',
+    'unknown': status === 'unknown'
+  }"
+  [matTooltip]="statusToolTip()"
+  matTooltipPosition="above"
+></span>

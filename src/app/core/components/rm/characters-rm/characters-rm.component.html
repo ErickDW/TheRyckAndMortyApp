@@ -1,0 +1,5 @@
+<div class=" container-cards">
+  <app-card *ngFor="let character of characters" [data]="character"></app-card>
+</div>
+<h2 *ngIf="characters.length <= 0">Not results...</h2>
+<app-button-up></app-button-up>
